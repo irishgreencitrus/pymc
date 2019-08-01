@@ -1,3 +1,4 @@
+import os
 try:
     from . import handler
 except:
@@ -11,3 +12,4 @@ except:
         print(c)
         print("\n")
     print("FIND THIS ON GITHUB https://github.com/DrPickens/pymc")
+    os.system("start chrome.exe https://github.com/DrPickens/pymc")
