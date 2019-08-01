@@ -10,3 +10,4 @@ except:
     for c in credits:
         print(c)
         print("\n")
+    print("FIND THIS ON GITHUB https://github.com/DrPickens/pymc")
