@@ -49,4 +49,3 @@ def launch():
     except OSError:
         print(open(__file__).read() + "\n")
         print("There is an error with subprocess.call(), If anyone was willing to fix it I'd be grateful")
-launch()
