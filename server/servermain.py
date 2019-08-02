@@ -7,9 +7,12 @@ servers = servfile.read().split(";")
 servfile.close()
 #Define Functions
 def listserv():
+    """List all servers in server.list"""
     for s in servers:
         print(s)
 def askfornew(prefixreq):
+    """Open a file prompt to return path it gave"""
+    #SideNote# if prefix req ends with a file ending you don't have in your file system while true will destroy you
     root = tk.Tk()
     root.withdraw()
     while True:
@@ -20,6 +23,8 @@ def askfornew(prefixreq):
         else:
             continue
 def add2data(pr):
+    """Add path to server.list"""
+    #SideNote# calls askfornew
     fil = open("server.list","a")
     fil.write(askfornew(pr) + ";")
     fil.close()
@@ -28,6 +33,7 @@ def add2data(pr):
     servers = fil.read().split(";")
     fil.close()
 def servchoose():
+    """Just a simple display of server.list"""
     numserv = []
     num = 0
     for s in servers:
@@ -36,8 +42,10 @@ def servchoose():
             stro = "["+str(num)+"]" + s
             print(stro)
 def getserv(num):
+    """Simple function, one line long"""
     return servers[int(num)-1]
 def runopt():
+    """Options, probably something will break here"""
     global ram
     global gui
     ram = int(input("How many GB of ram?")) * 1024
@@ -47,9 +55,12 @@ def runopt():
     else:
         gui = ""
 def runserv(path):
+    """ISSUE: If there are spaces in the path, os.system freaks out"""
+    """Anyway, runs the flipping thing"""
     cmd = "java -Xms" + str(ram) +"M -Xmx" + str(ram) + "M -jar " + str(path)
     os.system(cmd)
 def testscript():
+    """Just a quick testscript() {sorry i know that was horrible}"""
     if input("Add new server to list? (y/n)").lower().startswith("y"):
         add2data(".jar")
     print("\n")
