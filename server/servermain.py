@@ -26,7 +26,7 @@ def add2data(pr):
     """Add path to server.list"""
     #SideNote# calls askfornew
     fil = open("server.list","a")
-    fil.write(askfornew(pr) + ";")
+    fil.write("\"" + askfornew(pr) + "\"" + ";")
     fil.close()
     fil = open("server.list","r")
     global servers
@@ -39,7 +39,7 @@ def servchoose():
     for s in servers:
         num += 1
         if s != "":
-            stro = "["+str(num)+"]" + s
+            stro = "["+str(num)+"]" + s.replace("\"","")
             print(stro)
 def getserv(num):
     """Simple function, one line long"""
@@ -55,7 +55,7 @@ def runopt():
     else:
         gui = ""
 def runserv(path):
-    """ISSUE: If there are spaces in the path, os.system freaks out"""
+    """ISSUE: If there are spaces in the path, os.system freaks out #fixed!"""
     """Anyway, runs the flipping thing"""
     cmd = "java -Xms" + str(ram) +"M -Xmx" + str(ram) + "M -jar " + str(path)
     os.system(cmd)
