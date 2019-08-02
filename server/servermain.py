@@ -1,5 +1,4 @@
 import os
-import subprocess
 import tkinter as tk
 from tkinter import filedialog
 #Define Variables
@@ -48,8 +47,8 @@ def runopt():
     else:
         gui = ""
 def runserv(path):
-    cmd = "java -Xms" + str(ram) +"M -Xmx" + str(ram) + "M -jar" + str(path)
-    subprocess.call([cmd])
+    cmd = "java -Xms" + str(ram) +"M -Xmx" + str(ram) + "M -jar " + str(path)
+    os.system(cmd)
 def testscript():
     if input("Add new server to list? (y/n)").lower().startswith("y"):
         add2data(".jar")
