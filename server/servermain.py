@@ -1,7 +1,10 @@
 import os
 import tkinter as tk
 from tkinter import filedialog
+import pathlib
 #Define Variables
+if os.path.isfile("server.list") != True:
+    open("server.list","a").close()
 servfile = open("server.list", "r")
 servers = servfile.read().split(";")
 servfile.close()
@@ -57,6 +60,7 @@ def runopt():
 def runserv(path):
     """ISSUE: If there are spaces in the path, os.system freaks out #fixed!"""
     """Anyway, runs the flipping thing"""
+    os.chdir(str(os.path.dirname(path)).replace("\"",""))
     cmd = "java -Xms" + str(ram) +"M -Xmx" + str(ram) + "M -jar " + str(path)
     os.system(cmd)
 def testscript():
