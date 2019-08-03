@@ -74,4 +74,3 @@ def testscript():
     print("\n")
     runopt()
     runserv(pth)
-testscript()
