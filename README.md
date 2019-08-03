@@ -7,10 +7,11 @@
 
 To-do
 - [x] Make paths with spaces usable
-- [] Run server.jars in their own location
+- [x] Run server.jars in their own location
+- [ ] Get it to work on Macs
 
 ## Client
 * The actual Minecraft Launcher bit
 
 To-do
-- [] Make it work (jar command for running Minecraft requires some stuff)
+- [ ] Make it work (jar command for running Minecraft requires some stuff)
