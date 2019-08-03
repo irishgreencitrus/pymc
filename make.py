@@ -1,3 +1,3 @@
 import shutil
-shutil.make_archive("client.zip", 'zip', "client")
-shutil.make_archive("server.zip" , 'zip', "server")
+shutil.make_archive("client", 'zip', "client")
+shutil.make_archive("server" , 'zip', "server")
