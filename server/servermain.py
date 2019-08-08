@@ -2,7 +2,9 @@ import os
 import tkinter as tk
 from tkinter import filedialog
 import pathlib
+import platform
 #Define Variables
+syst = platform.system()
 if os.path.isfile("server.list") != True:
     open("server.list","a").close()
 servfile = open("server.list", "r")
@@ -20,7 +22,8 @@ def askfornew(prefixreq):
     root.withdraw()
     while True:
         new = filedialog.askopenfilename()
-        new = new.replace("/","\\")
+        if syst == "'Windows'":
+            new = new.replace("/","\\")
         if new.endswith(prefixreq):
             return new
         else:
@@ -74,3 +77,6 @@ def testscript():
     print("\n")
     runopt()
     runserv(pth)
+testscript(
+
+)
