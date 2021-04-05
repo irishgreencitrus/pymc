@@ -29,9 +29,7 @@ def getallfile(dir, ext, mode):
 def launch():
     print("Which version would you like to launch?")
     ls = getallfile(mcver, ".jar", "r")
-    n = 0
-    for a in ls:
-        n += 1
+    for n, a in enumerate(ls, start=1):
         print("["+str(n)+"] "+ a)
     try:
         ch = int(input())
