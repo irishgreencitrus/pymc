@@ -7,9 +7,8 @@ import platform
 syst = platform.system()
 if os.path.isfile("server.list") != True:
     open("server.list","a").close()
-servfile = open("server.list", "r")
-servers = servfile.read().split(";")
-servfile.close()
+with open("server.list", "r") as servfile:
+    servers = servfile.read().split(";")
 #Define Functions
 def listserv():
     """List all servers in server.list"""
@@ -41,9 +40,7 @@ def add2data(pr):
 def servchoose():
     """Just a simple display of server.list"""
     numserv = []
-    num = 0
-    for s in servers:
-        num += 1
+    for num, s in enumerate(servers, start=1):
         if s != "":
             stro = "["+str(num)+"]" + s.replace("\"","")
             print(stro)
@@ -56,10 +53,7 @@ def runopt():
     global gui
     ram = int(input("How many GB of ram?")) * 1024
     gui = input("-nogui [y/n]").lower()
-    if gui.lower().startswith("y"):
-        gui = "-nogui"
-    else:
-        gui = ""
+    gui = "-nogui" if gui.lower().startswith("y") else ""
 def runserv(path):
     """ISSUE: If there are spaces in the path, os.system freaks out #fixed!"""
     """Anyway, runs the flipping thing"""
